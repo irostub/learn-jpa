@@ -12,7 +12,7 @@ public class JpqlFind {
         try {
             tr.begin();
 
-            List<Member> resultList = em.createQuery("select m from Member as m", Member.class)
+            List<Member> resultList = em.createQuery("select m from Member as m where m.id=1", Member.class)
                     .getResultList();
             for (Member member : resultList) {
                 System.out.println("member.getName() = " + member.getName());
