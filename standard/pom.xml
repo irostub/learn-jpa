@@ -4,9 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.irostub</groupId>
-    <artifactId>learn-jpa</artifactId>
-    <version>1.0.0</version>
+    <parent>
+        <artifactId>learn-jpa</artifactId>
+        <groupId>org.irostub</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>standard</artifactId>
 
     <dependencies>
         <dependency>
@@ -21,6 +25,8 @@
             <version>1.4.200</version>
         </dependency>
     </dependencies>
+
+
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
