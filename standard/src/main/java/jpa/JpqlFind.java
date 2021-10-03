@@ -5,7 +5,7 @@ import java.util.List;
 
 public class JpqlFind {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("learn-jpa");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("standard");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tr = em.getTransaction();
 
