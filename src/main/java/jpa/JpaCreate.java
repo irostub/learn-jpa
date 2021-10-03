@@ -15,7 +15,6 @@ public class JpaCreate {
             tr.begin();
 
             Member member = new Member();
-            member.setId(2L);
             member.setName("HelloB");
 
             em.persist(member);
