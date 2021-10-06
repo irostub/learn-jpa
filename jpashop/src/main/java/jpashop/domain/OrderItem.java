@@ -19,7 +19,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    private Order order;
+    private Orders orders;
 
     @ManyToOne
     private Item item;
@@ -27,8 +27,8 @@ public class OrderItem {
     private int orderPrice;
     private int count;
 
-    public void setOrder(Order order) {
-        this.order = order;
-        order.getOrderItem().add(this);
+    public void setOrders(Orders orders) {
+        this.orders = orders;
+        orders.getOrderItem().add(this);
     }
 }

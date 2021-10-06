@@ -16,7 +16,7 @@ import java.util.List;
         sequenceName = "ORDER_SEQ",
         initialValue = 1, allocationSize = 50
 )
-public class Order {
+public class Orders {
     @Setter(AccessLevel.PRIVATE)
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ_GENERATOR")
     private Long id;
@@ -24,7 +24,7 @@ public class Order {
     @ManyToOne
     private Member member;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "orders")
     private List<OrderItem> orderItem = new ArrayList<>();
 
     @Temporal(TemporalType.TIMESTAMP)
