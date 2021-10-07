@@ -33,6 +33,9 @@ public class Orders {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
+    @OneToOne
+    private Delivery delivery;
+    
     public void setMember(Member member) {
         this.member = member;
         member.getOrders().add(this);
