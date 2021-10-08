@@ -13,15 +13,14 @@ import java.util.List;
 @Entity
 @SequenceGenerator(
         name="ORDER_SEQ_GENERATOR",
-        sequenceName = "ORDER_SEQ",
-        initialValue = 1, allocationSize = 50
+        sequenceName = "ORDER_SEQ"
 )
 public class Orders {
     @Setter(AccessLevel.PRIVATE)
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ_GENERATOR")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Member member;
 
     @OneToMany(mappedBy = "orders")
@@ -33,9 +32,9 @@ public class Orders {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Delivery delivery;
-    
+
     public void setMember(Member member) {
         this.member = member;
         member.getOrders().add(this);

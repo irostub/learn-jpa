@@ -23,4 +23,14 @@ public class CategoryItem {
 
     @ManyToOne
     private Item item;
+
+    public void setCategory(Category category) {
+        this.category = category;
+        category.getCategoryItems().add(this);
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+        item.getCategoryItems().add(this);
+    }
 }

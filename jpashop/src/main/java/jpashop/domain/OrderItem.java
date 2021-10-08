@@ -10,18 +10,17 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(
         name="ORDER_ITEM_SEQ_GENERATOR",
-        sequenceName = "ORDER_ITEM_SEQ",
-        initialValue = 1, allocationSize = 50
+        sequenceName = "ORDER_ITEM_SEQ"
 )
 public class OrderItem {
     @Setter(AccessLevel.PRIVATE)
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_ITEM_SEQ_GENERATOR")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Orders orders;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Item item;
 
     private int orderPrice;

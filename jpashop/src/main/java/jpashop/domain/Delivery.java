@@ -19,11 +19,13 @@ public class Delivery {
     @Setter(AccessLevel.PRIVATE)
     private Long id;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Orders orders;
 
     private String city;
     private String street;
     private String zipcode;
+
+    @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 }

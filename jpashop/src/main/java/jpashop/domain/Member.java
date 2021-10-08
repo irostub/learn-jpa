@@ -12,8 +12,8 @@ import java.util.List;
 @Entity
 @SequenceGenerator(
         name="MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ",
-        initialValue = 1, allocationSize = 50)
+        sequenceName = "MEMBER_SEQ"
+)
 public class Member {
     @Setter(AccessLevel.PRIVATE)
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
