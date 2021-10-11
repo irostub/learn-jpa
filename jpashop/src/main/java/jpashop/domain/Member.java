@@ -19,9 +19,9 @@ public class Member {
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
     private Long id;
     private String name;
-    private String city;
-    private String street;
-    private String zipcode;
+
+    @Embedded
+    private Address address;
 
     @OneToMany(mappedBy = "member")
     private List<Orders> orders = new ArrayList<>();

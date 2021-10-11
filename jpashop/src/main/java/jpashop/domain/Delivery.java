@@ -22,9 +22,11 @@ public class Delivery {
     @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
     private Orders orders;
 
-    private String city;
-    private String street;
-    private String zipcode;
+    @Embedded
+    private Address address;
+
+    @Embedded
+    private Period period;
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
