@@ -21,7 +21,18 @@ public class Member {
     private String name;
 
     @Embedded
-    private Address address;
+    private Address homeAddress;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="zipcode",
+                    column=@Column(name="WORK_ZIPCODE")),
+            @AttributeOverride(name="street",
+                    column=@Column(name="WORK_STREET")),
+            @AttributeOverride(name="city",
+                    column=@Column(name="WORK_CITY"))
+    })
+    private Address workAddress;
 
     @OneToMany(mappedBy = "member")
     private List<Orders> orders = new ArrayList<>();

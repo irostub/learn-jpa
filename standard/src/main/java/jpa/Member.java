@@ -8,8 +8,7 @@ import java.util.Date;
 @Entity
 @SequenceGenerator(
         name="MEMBER_SEQ_GENERATOR",
-        sequenceName = "MEMBER_SEQ",
-        initialValue = 1, allocationSize = 50
+        sequenceName = "MEMBER_SEQ"
 )
 public class Member {
 
@@ -54,6 +53,20 @@ public class Member {
 
     @Lob
     private String description;
+
+    @Embedded
+    private Address homeAddress;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name="zipcode",
+                    column=@Column(name="WORK_ZIPCODE")),
+            @AttributeOverride(name="street",
+                    column=@Column(name="WORK_STREET")),
+            @AttributeOverride(name="city",
+                    column=@Column(name="WORK_CITY"))
+    })
+    private Address workAddress;
 
     public String getDescription() {
         return description;
