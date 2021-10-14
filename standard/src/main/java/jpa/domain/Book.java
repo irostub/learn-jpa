@@ -1,4 +1,4 @@
-package jpa;
+package jpa.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +7,6 @@ import javax.persistence.Entity;
 
 @Getter @Setter
 @Entity
-public class Movie extends Item{
-    private String title;
+public class Book extends Item{
+    private String isbn;
 }

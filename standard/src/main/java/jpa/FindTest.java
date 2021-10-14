@@ -1,9 +1,11 @@
 package jpa;
 
+import jpa.domain.Member;
+
 import javax.persistence.*;
 import java.util.List;
 
-public class JpqlFind {
+public class FindTest {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("standard");
         EntityManager em = emf.createEntityManager();

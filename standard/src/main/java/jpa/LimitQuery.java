@@ -1,11 +1,14 @@
 package jpa;
 
+import jpa.domain.Member;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
-public class JpaUpdate {
+public class LimitQuery {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("standard");
         EntityManager em = emf.createEntityManager();
@@ -14,11 +17,16 @@ public class JpaUpdate {
         try {
             tr.begin();
 
-            Member member = em.find(Member.class, 1L);
-            System.out.println("member.getName() = " + member.getName());
-            System.out.println("member.getId() = " + member.getId());
+            List<Member> resultList = em.createQuery("select m from Member as m", Member.class)
+                    .setFirstResult(5)
+                    .setMaxResults(8)
+                    .getResultList();
 
-            member.setName("JPA1");
+            for (Member member : resultList) {
+                System.out.println("member.getName() = " + member.getName());
+                System.out.println("member.getId() = " + member.getId());
+            }
+
             tr.commit();
         } catch (Exception e) {
             tr.rollback();
@@ -27,5 +35,6 @@ public class JpaUpdate {
             em.close();
         }
         emf.close();
+
     }
 }

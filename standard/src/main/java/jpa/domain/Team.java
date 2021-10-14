@@ -1,5 +1,6 @@
-package jpa;
+package jpa.domain;
 
+import jpa.domain.Member;
 import lombok.Getter;
 import lombok.Setter;
 

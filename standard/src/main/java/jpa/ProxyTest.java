@@ -1,5 +1,6 @@
 package jpa;
 
+import jpa.domain.Member;
 import org.hibernate.Hibernate;
 
 import javax.persistence.EntityManager;

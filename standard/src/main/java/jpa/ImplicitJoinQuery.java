@@ -1,5 +1,8 @@
 package jpa;
 
+import jpa.domain.Member;
+import jpa.domain.Team;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -7,7 +10,7 @@ import javax.persistence.Persistence;
 import java.util.Collection;
 import java.util.List;
 
-public class ImplicitJoinTest {
+public class ImplicitJoinQuery {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("standard");
         EntityManager em = emf.createEntityManager();

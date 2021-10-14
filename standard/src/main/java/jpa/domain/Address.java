@@ -1,4 +1,4 @@
-package jpa;
+package jpa.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

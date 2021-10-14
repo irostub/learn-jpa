@@ -1,12 +1,14 @@
 package jpa;
 
+import jpa.domain.Child;
+import jpa.domain.Parent;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
-public class JpqlTest {
+public class CascadeOption {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("standard");
         EntityManager em = emf.createEntityManager();
@@ -14,26 +16,28 @@ public class JpqlTest {
 
         try {
             tr.begin();
+            Parent parent = new Parent();
+            Child child1 = new Child();
+            Child child2 = new Child();
+            parent.addChild(child1);
+            parent.addChild(child2);
 
-            Member member = new Member();
-            member.setName("irostub");
-            em.persist(member);
+            em.persist(parent);
 
             em.flush();
             em.clear();
 
-            String query = "select m from Member as m where m.id=1L";
-            List<Member> resultList = em.createQuery(query, Member.class).getResultList();
+            Parent p1 = em.find(Parent.class, 1L);
 
-            for (Member member1 : resultList) {
-                System.out.println(member1.getName());
-            }
+            p1.getChildList().remove(0);
+
+            em.remove(p1);
 
             tr.commit();
         } catch (Exception e) {
-            tr.rollback();
             e.printStackTrace();
-        } finally {
+            tr.rollback();
+        } finally{
             em.close();
         }
         emf.close();

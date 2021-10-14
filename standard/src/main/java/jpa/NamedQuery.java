@@ -1,5 +1,8 @@
 package jpa;
 
+import jpa.domain.Member;
+import jpa.domain.Team;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;

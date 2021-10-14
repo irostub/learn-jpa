@@ -1,5 +1,9 @@
 package jpa;
 
+import jpa.domain.Book;
+import jpa.domain.Item;
+import jpa.domain.Movie;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
