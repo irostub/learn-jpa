@@ -61,7 +61,7 @@ public class ImplicitJoinTest {
             em.clear();
 
             //명시적 조인 경로 표현식
-            String query = "select m from Team t JOIN Member m ON t.id = m.team.id where t.name='TeamA'";
+            String query = "select t from Team as t JOIN t.members where t.name='TeamA'";
             List<Member> mlist = em.createQuery(query, Member.class).getResultList();
             for (Member member : mlist) {
                 System.out.println(member.getName());
