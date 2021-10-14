@@ -4,10 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.persistence.NamedQuery;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+@NamedQuery(
+        name="Member.myNamedQuery",
+        query="SELECT distinct m FROM Member m join fetch m.team"
+)
 @Getter @Setter
 @Entity
 @SequenceGenerator(
